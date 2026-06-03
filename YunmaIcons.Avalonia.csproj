@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+
+    <!-- NuGet metadata -->
+    <PackageId>SiarpiIcons.Avalonia</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Gayu Yunma Ramadhan</Authors>
+    <Description>Custom icon pack for AvaloniaUI based on Lucide SVG paths</Description>
+    <PackageTags>avalonia;icons;lucide;ui</PackageTags>
+    <RepositoryUrl>https://github.com/username/SiarpiIcons.Avalonia</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="12.0.3" />
+  </ItemGroup>
+</Project>

@@ -198,4 +198,57 @@ public enum AppIconKind
     Minimize,
     /// <summary>✥ Move / Drag</summary>
     Move,
+        // ── Keuangan ──
+    Wallet,
+    Banknote,
+    Receipt,
+    TrendingUp,
+    TrendingDown,
+    PiggyBank,
+    Landmark,
+    Coins,
+    Percent,
+    Calculator,
+
+    // ── Perkakas ──
+    Wrench,
+    Hammer,
+    PenTool,
+    Ruler,
+    Cog,
+    Gauge,
+    Plug,
+    Paintbrush,
+    Axe,
+    Pickaxe,
+
+    // ── Kendaraan ──
+    Car,
+    Truck,
+    Ship,
+    Train,
+    Bike,
+    Fuel,
+    Anchor,
+    Rocket,
+    Sailboat,
+    Ambulance,
+
+    // ── Elektronik ──
+    Monitor,
+    Laptop,
+    Tablet,
+    Mouse,
+    Keyboard,
+    Headphones,
+    Speaker,
+    Cpu,
+    HardDrive,
+    Bluetooth,
+    Tv,
+    Watch,
+    Fan,
+    Gamepad,
+    Usb
+
 }

@@ -1,15 +1,15 @@
 using System;
+using System.Threading;
 using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Animation.Easings;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using Avalonia.Media;
 using Avalonia.Styling;
 using Avalonia.VisualTree;
-
-// Explicit alias biar ga ambiguous
 using Path = Avalonia.Controls.Shapes.Path;
-using TextElement = Avalonia.Controls.Primitives.TemplatedControl;
+
 namespace YunmaIcons.Avalonia;
 
 public class AppIcon : Viewbox
@@ -110,16 +110,19 @@ public class AppIcon : Viewbox
         if (Foreground != null)
             return Foreground;
 
-        // Walk up visual tree
         var parent = this.GetVisualParent();
         while (parent != null)
         {
-            if (parent is Control ctrl)
-            {
-                var brush = ctrl.GetValue(TextElement.ForegroundProperty);
-                if (brush != null && brush != Brushes.Black)
-                    return brush;
-            }
+            if (parent is ContentControl cc &&
+                cc.Foreground != null &&
+                cc.Foreground != Brushes.Black)
+                return cc.Foreground;
+
+            if (parent is TemplatedControl tc &&
+                tc.Foreground != null &&
+                tc.Foreground != Brushes.Black)
+                return tc.Foreground;
+
             parent = parent.GetVisualParent();
         }
 
@@ -243,5 +246,12 @@ public class AppIcon : Viewbox
         };
 
         try { await anim.RunAsync(this, ct); } catch { }
+    }
+
+    /// <summary>Force re-render — dipanggil manual saat hot reload</summary>
+    public void ForceRefresh()
+    {
+        UpdateIcon();
+        ApplyAnimation();
     }
 }
